@@ -129,22 +129,54 @@
           <p class="nunito-header-text">CHUẨN GU ĐÚNG VỊ</p>
         </div>
         <div class="row position-absolute" style="left: -300px">
-          <Swiper :data-array="coffeeCardsData" />
+          <Swiper variant="simple" :data-array="coffeeCardsData" />
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3"></div>
+    </div>
 
+    <div class="row justify-content-center" style="height: 802px">
+      <div class="col-lg-3" style="background: #EDF0F5;"></div>
+      <div class="col-lg-6 position-relative" style="background: #EDF0F5;">
+        <div class="row justify-content-center mt-5">
+          <p class="nunito-small-text">Best Gift For Best Friend</p>
+        </div>
+        <div class="row justify-content-center">
+          <p class="big-text">GIFTSET</p>
+        </div>
+        <Tabset class="position-absolute" :data="giftSet" style="z-index: 10000; top: 171px; height: 459px; right: -20%; width: 1138px"/>
       </div>
+      <div class="col-lg-3" style="background: #ffffff;"></div>
+    </div>
+
+    <div class="row justify-content-center" style="height: 906px">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6 position-relative">
+        <div class="row justify-content-center mt-5">
+          <p class="nunito-small-text">Your Personalized Coffee</p>
+        </div>
+        <div class="row mb-5 justify-content-center">
+          <p class="big-text">COMBO PHIN PHÊ</p>
+        </div>
+        <Swiper style="z-index: 10000; left: -200px; right: -50%" class="position-absolute" variant="combo" :data-array="comboCardsData" />
+      </div>
+      <div class="col-lg-3" style="background: #415167;"></div>
+    </div>
+
+    <div class="row position-relative" style="background: #EDF0F5; height: 60px">
+      <p class="footer-text position-absolute center">© Revo Coffee Việt Nam - 2018</p>
     </div>
   </main>
 </template>
 
 <script>
 import Swiper from '~/components/swiper'
+import Tabset from '~/components/tabset'
 
 export default {
   components: {
-    Swiper
+    Swiper,
+    Tabset
   },
 
   data () {
@@ -185,6 +217,49 @@ export default {
           price: '225.000',
           header: 'REVO Evening',
           description: 'hậu ngọt, ít đắng, vị chua dâu'
+        }
+      ],
+      giftSet: {
+        price: '285.000',
+        header: 'Giftset "Cà phê phin Việt Nam',
+        description: 'Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.',
+        image: require('~/assets/img/giftset.svg')
+      },
+      comboCardsData: [
+        {
+          image: require('~/assets/img/combo_brown.svg'),
+          price: '147.000',
+          oldPrice: '155.000',
+          header: 'Combo Revo Đậm Đà',
+          description: 'Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc...'
+        },
+        {
+          image: require('~/assets/img/combo_blue.svg'),
+          price: '156.000',
+          oldPrice: '165.000',
+          header: 'Combo Revo Everyday',
+          description: 'Revo Everyday được phối trộn giữa vị đắng của hạt Robusta và hương thơm...'
+        },
+        {
+          image: require('~/assets/img/combo_red.svg'),
+          price: '275.000',
+          oldPrice: '260.000',
+          header: 'Combo Revo Honey',
+          description: 'Honey – trong tên gọi Revo Honey đến từ phương pháp chế biến hạt Arabica...'
+        },
+        {
+          image: require('~/assets/img/combo_brown.svg'),
+          price: '215.000',
+          oldPrice: '230.000',
+          header: 'Combo Revo Elite',
+          description: 'Elite – trong tên gọi Revo Honey đến từ phương pháp chế biến hạt Arabica...'
+        },
+        {
+          image: require('~/assets/img/combo_blue.svg'),
+          price: '115.000',
+          oldPrice: '130.000',
+          header: 'Combo Revo Cheap',
+          description: 'Elite – trong tên gọi Revo Honey đến từ phương pháp chế biến hạt Arabica...'
         }
       ]
     }
@@ -229,5 +304,14 @@ export default {
   font-size: 16px;
   line-height: 24px;
   color: #EDF0F5;
+}
+
+.footer-text {
+  font-family: Nunito, sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
+  color: #415167;
 }
 </style>

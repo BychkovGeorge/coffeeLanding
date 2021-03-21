@@ -1,6 +1,6 @@
 <template>
   <div>
-    <swiper class="swiper" :options="swiperOptions">
+    <swiper v-if="variant === 'simple'" class="swiper" :options="swiperOptions">
       <swiper-slide>
         <Card
           class="mb-5"
@@ -50,26 +50,58 @@
         <img src="~/assets/img/next.svg" />
       </div>
     </swiper>
+
+    <swiper v-if="variant === 'combo'" class="swiper" :options="swiperOptionsCombo">
+      <swiper-slide>
+        <ComboCard :data="dataArray[0]" />
+      </swiper-slide>
+      <swiper-slide>
+        <ComboCard :data="dataArray[1]" />
+      </swiper-slide>
+      <swiper-slide>
+        <ComboCard :data="dataArray[2]" />
+      </swiper-slide>
+      <swiper-slide>
+        <ComboCard :data="dataArray[3]" />
+      </swiper-slide>
+      <swiper-slide>
+        <ComboCard :data="dataArray[4]" />
+      </swiper-slide>
+      <div slot="button-next" class="btn-next position-absolute" style="top: 296px; right: 10%; z-index: 10000">
+        <img src="~/assets/img/next.svg" />
+      </div>
+    </swiper>
   </div>
 </template>
 
 <script>
 import Card from '~/components/coffee-card'
+import ComboCard from '~/components/combo-card'
 import 'swiper/swiper-bundle.css'
 
 export default {
   components: {
-    Card
+    Card,
+    ComboCard
   },
 
   props: {
-    dataArray: Array
+    dataArray: Array,
+    variant: String
   },
 
   data () {
     return {
       swiperOptions: {
         slidesPerView: 2.5,
+        navigation: {
+          nextEl: '.btn-next',
+          prevEl: '.btn-prev'
+        }
+      },
+      swiperOptionsCombo: {
+        slidesPerView: 3.5,
+        spaceBetween: 100,
         navigation: {
           nextEl: '.btn-next',
           prevEl: '.btn-prev'
