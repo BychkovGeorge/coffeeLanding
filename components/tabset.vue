@@ -70,17 +70,17 @@
     </div>
     <div class="col-lg-2">
       <ul class="" style="list-style: none; height: 100%">
-        <li id="1" class="tab-numbers position-relative pointer" style="height: 153px; vertical-align: middle" @click="changeTab(1)">
+        <li id="1" class="tab-numbers list-selector position-relative pointer" style="height: 153px; vertical-align: middle" @click="changeTab(1)">
           <p class="position-absolute center">
             1
           </p>
         </li>
-        <li id="2" class="tab-numbers-inactive position-relative pointer" style="height: 153px; background: #EDF0F5 !important;" @click="changeTab(2)">
+        <li id="2" class="tab-numbers-inactive list-selector position-relative pointer" style="height: 153px; background: #EDF0F5 !important;" @click="changeTab(2)">
           <p class="position-absolute center">
             2
           </p>
         </li>
-        <li id="3" class="tab-numbers-inactive position-relative pointer" style="height: 153px; background: #EDF0F5 !important;" @click="changeTab(3)">
+        <li id="3" class="tab-numbers-inactive list-selector position-relative pointer" style="height: 153px; background: #EDF0F5 !important;" @click="changeTab(3)">
           <p class="position-absolute center">
             3
           </p>
@@ -104,7 +104,7 @@ export default {
 
   methods: {
     changeTab (id) {
-      document.querySelectorAll('li').forEach((el) => {
+      document.getElementsByClassName('list-selector').forEach((el) => {
         el.classList.add('tab-numbers-inactive')
         el.style.background = '#EDF0F5'
       })
